@@ -1,0 +1,55 @@
+"""
+Root Query.
+"""
+type Query {
+  post: Post!
+}
+
+interface Node {
+  id: ID!
+}
+
+"""
+User
+"""
+type User implements Node {
+  """
+  The ID of an object.
+  """
+  id: ID!
+
+  """
+  The Name of User.
+  """
+  name: String!
+
+  """
+  The Image of User.
+  """
+  image: String
+}
+
+"""
+Post
+"""
+type Post implements Node {
+  """
+  The ID of an object.
+  """
+  id: ID!
+
+  """
+  The image of Post.
+  """
+  image: String!
+
+  """
+  The caption of Post.
+  """
+  caption: String
+
+  """
+  The User who posted.
+  """
+  postedBy: User!
+}
